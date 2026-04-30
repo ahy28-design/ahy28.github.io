@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Abigail Yun - Accounting Professional Portfolio">
+    <title>Abigail Yun | Accounting Professional</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --cream: #fdfaf0;
+            --dark-red: #7b1113;
+            --charcoal: #2c2c2c;
+            --beige-accent: #f5f1e4;
+            --white-glass: rgba(255, 255, 255, 0.4);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--cream);
+            color: var(--charcoal);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Lora', serif; color: var(--dark-red); }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .profile-wrapper { position: relative; margin-bottom: 2.5rem; }
+
+        .blur-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            height: 320px;
+            background: var(--white-glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1;
+        }
+
+        .profile-img {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid var(--dark-red);
+            z-index: 2;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 0.5rem; }
+
+        .hero p.tagline {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--dark-red);
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--dark-red);
+        }
+
+        .btn-primary:hover { background-color: transparent; color: var(--dark-red); }
+
+        section { padding: 5rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--dark-red);
+        }
+
+        .timeline { display: flex; flex-direction: column; gap: 2rem; }
+
+        .exp-card {
+            background-color: var(--beige-accent);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border-left: 8px solid var(--dark-red);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .exp-date { font-weight: 600; color: #888; font-size: 0.9rem; }
+
+        .exp-card ul { list-style-type: none; }
+
+        .exp-card ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .exp-card ul li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--dark-red);
+            font-size: 0.8rem;
+            top: 2px;
+        }
+
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .edu-card {
+            border: 1px solid #e0e0e0;
+            padding: 2.5rem;
+            border-radius: 12px;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .edu-card:hover { border-color: var(--dark-red); }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--dark-red);
+            color: var(--cream);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        footer {
+            background-color: var(--charcoal);
+            color: var(--cream);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .footer-links a {
+            color: var(--cream);
+            margin: 0 1rem;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover { opacity: 1; color: var(--dark-red); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .exp-header { flex-direction: column; }
+            .edu-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+<script src="https://scripts.api.disqometer.com/desktop_inpage_script.js?nc=NzYxNjc1MjE1ODc1MTIxMDAwNjExNzc="></script>
+</head>
+<body>
+
+    <div class="container">
+        <!-- HERO SECTION -->
+        <header class="hero">
+            <div class="profile-wrapper">
+                <div class="blur-circle"></div>
+                <img src="Assets/ProfilePic.jpeg" alt="Abigail Yun" class="profile-img">
+            </div>
+            <h1>Abigail Yun</h1>
+            <p class="tagline">Accounting Student | Rutgers Business School</p>
+            <a href="mailto:ahy28@scarletmail.rutgers.edu" class="btn-primary">Connect With Me</a>
+        </header>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="edu-grid">
+                <!-- University -->
+                <div class="edu-card">
+                    <span class="exp-date">Expected Graduation: May 2027</span>
+                    <h3 style="margin: 0.5rem 0;">B.S. in Accounting</h3>
+                    <p><strong>Rutgers Business School</strong> [cite: 5]</p>
+                    <p>New Brunswick, NJ [cite: 7]</p>
+                    <p style="margin-top:1.5rem; font-size:0.9rem;"><strong>Key Coursework:</strong><br>
+                    Intro to Financial & Managerial Accounting, Intermediate Accounting I [cite: 11, 12, 13]</p>
+                </div>
+                <!-- High School -->
+                <div class="edu-card">
+                    <span class="exp-date">Graduated: 2024</span>
+                    <h3 style="margin: 0.5rem 0;">High School Diploma</h3>
+                    <p><strong>River Dell Regional High School</strong></p>
+                    <p>Oradell, NJ</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <h3>Host [cite: 16]</h3>
+                            <p style="color: var(--dark-red); font-weight: 600;">Sakana | New Brunswick, NJ [cite: 15]</p>
+                        </div>
+                        <span class="exp-date">Oct 2025 — Present [cite: 18]</span>
+                    </div>
+                    <ul>
+                        <li>Efficiently greeted and seated guests in a fast-paced sushi restaurant while managing waitlists and maintaining a smooth front-of-house flow. [cite: 19]</li>
+                        <li>Accurately processed and organized high-volume online takeout orders, ensuring timely preparation and clear communication between customers and kitchen staff. [cite: 20]</li>
+                    </ul>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <h3>Babysitter [cite: 22]</h3>
+                            <p style="color: var(--dark-red); font-weight: 600;">Private Care | River Edge, NJ [cite: 21]</p>
+                        </div>
+                        <span class="exp-date">Dec 2023 — Present [cite: 23]</span>
+                    </div>
+                    <ul>
+                        <li>Delivered reliable childcare for children ages 2-10, ensuring safety while engaging in age-appropriate activities and supporting development. [cite: 24]</li>
+                        <li>Handled emergencies calmly and responsibly, demonstrating strong problem-solving and decision-making skills. [cite: 25]</li>
+                    </ul>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <h3>Barista/Cashier [cite: 26]</h3>
+                            <p style="color: var(--dark-red); font-weight: 600;">Cafe Teasia | River Edge, NJ [cite: 26]</p>
+                        </div>
+                        <span class="exp-date">Aug 2022 — Nov 2024 [cite: 27]</span>
+                    </div>
+                    <ul>
+                        <li>Trained new team members on espresso preparation and POS systems, boosting team productivity and consistency in service. [cite: 28]</li>
+                        <li>Recommended seasonal drinks and upsold pastries, increasing average transaction values by up to 15%. [cite: 29]</li>
+                    </ul>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <h3>Assistant Teacher [cite: 31]</h3>
+                            <p style="color: var(--dark-red); font-weight: 600;">Dreamer Academy | Tenafly, NJ [cite: 30]</p>
+                        </div>
+                        <span class="exp-date">Jul 2022 — Sep 2022 [cite: 32]</span>
+                    </div>
+                    <ul>
+                        <li>Facilitated classroom management for 20+ students, fostering a positive learning environment and reducing behavioral disruptions. [cite: 33]</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills">
+            <h2 class="section-title">Skills & Expertise</h2>
+            
+            <h3 style="margin-bottom:1rem;">Technical & Software</h3>
+            <div class="skills-container">
+                <span class="skill-tag">Microsoft Excel (Beginner) [cite: 38]</span>
+                <span class="skill-tag">Microsoft Office Suite [cite: 38]</span>
+                <span class="skill-tag">Java (Beginner) [cite: 38]</span>
+                <span class="skill-tag">JavaScript (Beginner) [cite: 38]</span>
+            </div>
+
+            <h3 style="margin: 2rem 0 1rem 0;">Languages</h3>
+            <div class="skills-container">
+                <span class="skill-tag">English (Native) [cite: 37]</span>
+                <span class="skill-tag">Korean (Conversational) [cite: 37]</span>
+                <span class="skill-tag">Chinese (Beginner) [cite: 37]</span>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/abigail-yun-23bb49386" target="_blank">LinkedIn [cite: 3]</a>
+                <a href="mailto:ahy28@scarletmail.rutgers.edu">Email [cite: 3]</a>
+                <a href="Assets/Resume.pdf" target="_blank">Resume PDF</a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.9rem;">&copy; 2026 Abigail Yun | Accounting Portfolio</p>
+        </div>
+    </footer>
+
+</body>
+</html>
